@@ -1,0 +1,19 @@
+bind_address: 127.0.0.1
+port: 1161
+pen: 32473
+max_sessions: 100
+snmp_versions:
+  - v2c
+  - v3
+community: ${SNMP_COMMUNITY:-public}
+v3_user: ${SNMP_V3_USER:-}
+v3_auth_password: ${SNMP_V3_AUTH_PASSWORD:-}
+v3_priv_password: ${SNMP_V3_PRIV_PASSWORD:-}
+log_level: INFO
+device_host: ${PDU_HOST:-192.168.1.50}
+device_port: 161
+device_community: ${PDU_COMMUNITY:-public}
+poll_interval_seconds: 5
+device_timeout_seconds: 2
+device_retries: 1
+

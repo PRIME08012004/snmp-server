@@ -1,0 +1,54 @@
+CUSTOM-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+    MODULE-IDENTITY, OBJECT-TYPE, enterprises, Integer32
+        FROM SNMPv2-SMI;
+
+customMIB MODULE-IDENTITY
+    LAST-UPDATED "202610200000Z"
+    ORGANIZATION "Local deployment"
+    CONTACT-INFO ""
+    DESCRIPTION
+        "Manager-facing objects served by the custom PEN SNMP agent."
+    REVISION "202610200000Z"
+    DESCRIPTION "Initial custom agent objects."
+    ::= { enterprises 32473 }
+
+customPduMetrics OBJECT IDENTIFIER ::= { customMIB 3 }
+
+customCurrentL1 OBJECT-TYPE
+    SYNTAX Integer32 (0..65535)
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "PDU 1 input 1 current reading, mapped from the source PDU MIB."
+    ::= { customPduMetrics 1 }
+
+customVoltageL1 OBJECT-TYPE
+    SYNTAX Integer32 (0..65535)
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "PDU 1 input 1 voltage reading, mapped from the source PDU MIB."
+    ::= { customPduMetrics 2 }
+
+customPowerL1 OBJECT-TYPE
+    SYNTAX Integer32 (0..65535)
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "PDU 1 input 1 power reading, mapped from the source PDU MIB."
+    ::= { customPduMetrics 3 }
+
+customEnergyL1 OBJECT-TYPE
+    SYNTAX Integer32 (0..65535)
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "PDU 1 input 1 energy reading, mapped from the source PDU MIB."
+    ::= { customPduMetrics 4 }
+
+customPowerFactorL1 OBJECT-TYPE
+    SYNTAX Integer32 (0..65535)
+    MAX-ACCESS read-only
+    STATUS current
+    DESCRIPTION "PDU 1 input 1 power factor reading, mapped from the source PDU MIB."
+    ::= { customPduMetrics 5 }
+
+END
